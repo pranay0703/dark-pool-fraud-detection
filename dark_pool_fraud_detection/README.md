@@ -1,60 +1,5 @@
-# Dark Pool Fraud Detection System
 
-A novel AI system for real-time fraud detection in dark pool trading using Temporal Graph Neural Networks and Transformer architectures.
-
-## 🚀 Project Overview
-
-This project implements a sophisticated system to detect information asymmetry in dark pool trading venues using advanced deep learning techniques. The system combines:
-
-- **Temporal Graph Neural Networks (TGNNs)** for modeling dynamic relationships
-- **Transformer Networks** for sequential data processing
-- **Hybrid HAR-BACD-V Architecture** for multi-scale analysis
-- **Explainable AI (XAI)** for regulatory compliance
-- **Uncertainty Quantification** for reliable predictions
-
-## ✨ Key Features
-
-- **Real-time fraud detection** with <2.3ms latency
-- **97.8% accuracy** on dark pool transaction data
-- **Multi-modal analysis** of trade microstructure
-- **Regulatory-compliant** explainable predictions
-- **Scalable cloud deployment** architecture
-- **Uncertainty quantification** for reliable predictions
-- **Comprehensive evaluation** and visualization tools
-
-## 🏗️ Project Structure
-
-```
-dark_pool_fraud_detection/
-├── data/                   # Raw and processed datasets
-├── models/                 # Saved model checkpoints
-├── configs/               # Configuration files
-├── notebooks/             # Jupyter notebooks for analysis
-├── src/                   # Source code
-│   ├── data_pipeline/     # Data loading and preprocessing
-│   │   ├── data_loader.py
-│   │   └── temporal_graph.py
-│   ├── models/           # Model architectures
-│   │   ├── temporal_gnn.py
-│   │   ├── transformer_model.py
-│   │   ├── hybrid_model.py
-│   │   ├── uncertainty_quantification.py
-│   │   ├── explainability.py
-│   │   └── integrated_model.py
-│   ├── training/         # Training pipelines
-│   │   └── trainer.py
-│   └── inference/        # Real-time inference
-│       └── real_time_inference.py
-├── tests/                # Unit tests
-├── utils/                # Utility functions
-├── train.py             # Main training script
-├── evaluate.py          # Evaluation script
-├── demo.py              # Demo script
-├── setup.py             # Setup script
-└── requirements.txt     # Dependencies
-```
-
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -108,7 +53,7 @@ python demo.py --model models/best_model.pth
 python demo.py --model models/best_model.pth --demo_type realtime --num_samples 100
 ```
 
-## 📊 Model Architecture
+## Model Architecture
 
 ### Integrated Model Components
 
@@ -137,7 +82,7 @@ python demo.py --model models/best_model.pth --demo_type realtime --num_samples 
    - LIME (Local Interpretable Model-agnostic Explanations)
    - Attention visualization
 
-## 🔧 Configuration
+## Configuration
 
 The system is configured via `configs/config.yaml`. Key configuration sections:
 
@@ -147,7 +92,7 @@ The system is configured via `configs/config.yaml`. Key configuration sections:
 - **Hardware Configuration**: Device settings, number of workers
 - **Logging Configuration**: Log levels, output directories
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 The system targets the following performance metrics:
 
@@ -157,7 +102,7 @@ The system targets the following performance metrics:
 - **F1 Score**: >0.90
 - **AUC-ROC**: >0.95
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -170,7 +115,7 @@ python -m pytest tests/test_models.py
 python -m pytest --cov=src tests/
 ```
 
-## 📚 Usage Examples
+## Usage Examples
 
 ### Real-time Inference
 
@@ -217,7 +162,7 @@ explainer = ModelExplainer(model, feature_names, class_names)
 explanations = explainer.explain_shap(features)
 ```
 
-## 🔬 Research Background
+## Research Background
 
 This project is based on cutting-edge research in:
 
@@ -227,11 +172,11 @@ This project is based on cutting-edge research in:
 - **Explainable AI** for regulatory compliance
 - **Uncertainty quantification** in deep learning
 
-## 📄 License
+## License
 
 MIT License - see LICENSE file for details.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -239,11 +184,11 @@ MIT License - see LICENSE file for details.
 4. Add tests
 5. Submit a pull request
 
-## 📞 Support
+## Support
 
 For questions and support, please open an issue on GitHub.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 This project builds upon research from:
 - Temporal Graph Neural Networks for fraud detection
