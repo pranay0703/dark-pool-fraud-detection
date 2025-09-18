@@ -1,0 +1,111 @@
+# Dark Pool Fraud Detection Configuration
+
+# Data Configuration
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  batch_size: 1024
+  sequence_length: 100
+  num_features: 118
+
+# Model Configuration
+model:
+  # Temporal Graph Neural Network
+  tgnn:
+    hidden_dim: 128
+    num_layers: 3
+    num_heads: 8
+    dropout: 0.1
+    memory_size: 1000
+    
+  # Transformer Configuration
+  transformer:
+    d_model: 256
+    num_heads: 8
+    num_layers: 6
+    dropout: 0.1
+    max_seq_length: 1000
+    
+  # HAR-BACD-V Hybrid Model
+  hybrid:
+    har_lags: [1, 5, 22]  # Daily, weekly, monthly
+    bacd_components: 3
+    attention_heads: 4
+    
+  # Uncertainty Quantification
+  uncertainty:
+    use_bnn: true
+    bnn_samples: 100
+    confidence_threshold: 0.95
+
+# Training Configuration
+training:
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 1e-5
+  patience: 10
+  min_delta: 0.001
+  gradient_clip_norm: 1.0
+  
+  # Optimizer
+  optimizer: "adamw"
+  scheduler: "cosine"
+  
+  # Loss weights
+  loss_weights:
+    classification: 1.0
+    reconstruction: 0.1
+    temporal_consistency: 0.05
+
+# Evaluation Configuration
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "auc_roc"
+    - "auc_pr"
+  
+  # Threshold for binary classification
+  fraud_threshold: 0.5
+  
+  # Performance targets
+  target_accuracy: 0.95
+  target_latency_ms: 2.3
+  max_false_positive_rate: 0.02
+
+# Explainability Configuration
+explainability:
+  use_shap: true
+  use_lime: true
+  shap_samples: 1000
+  lime_samples: 1000
+  feature_importance_top_k: 20
+
+# Hardware Configuration
+hardware:
+  device: "cuda"  # or "cpu"
+  num_workers: 4
+  pin_memory: true
+  mixed_precision: true
+
+# Logging and Monitoring
+logging:
+  log_level: "INFO"
+  log_dir: "logs/"
+  use_wandb: true
+  wandb_project: "dark-pool-fraud-detection"
+  save_checkpoints: true
+  checkpoint_frequency: 10
+
+# Real-time Inference
+inference:
+  batch_size: 1
+  max_latency_ms: 2.3
+  model_warmup: true
+  caching_enabled: true
+  cache_size: 10000
